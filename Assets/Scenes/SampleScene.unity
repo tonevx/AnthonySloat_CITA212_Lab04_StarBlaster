@@ -268,6 +268,22 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4471163683276237911, guid: 9f95ff2bf8f2a9f42966489fdb140631, type: 3}
+      propertyPath: topBoundPadding
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471163683276237911, guid: 9f95ff2bf8f2a9f42966489fdb140631, type: 3}
+      propertyPath: leftBoundPadding
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471163683276237911, guid: 9f95ff2bf8f2a9f42966489fdb140631, type: 3}
+      propertyPath: rightBoundPadding
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471163683276237911, guid: 9f95ff2bf8f2a9f42966489fdb140631, type: 3}
+      propertyPath: bottomBoundPadding
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8352450120808149152, guid: 9f95ff2bf8f2a9f42966489fdb140631, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
