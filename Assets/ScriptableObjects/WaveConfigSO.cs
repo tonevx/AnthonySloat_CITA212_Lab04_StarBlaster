@@ -3,13 +3,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WaveConfig", menuName = "New WaveConfig")]
 public class WaveConfigSO : ScriptableObject
 {
-    [SerializeField] Transform enemyPrefab;
+    [SerializeField] Transform pathPrefab;
 
     [SerializeField] float enemymoveSpeed = 10f;
 
     public Transform GetStartingWayPoint()
     {
-        return enemyPrefab.GetChild(0);
+        return pathPrefab.GetChild(0);
     }
     public float GetEnemyMoveSpeed()
     {
@@ -17,10 +17,10 @@ public class WaveConfigSO : ScriptableObject
     }
     public Transform[] GetWayPoints()
     {
-        Transform[] wayPoints = new Transform[enemyPrefab.childCount];
-        for (int i = 0; i < enemyPrefab.childCount; i++)
+        Transform[] wayPoints = new Transform[pathPrefab.childCount];
+        for (int i = 0; i < pathPrefab.childCount; i++)
         {
-            wayPoints[i] = enemyPrefab.GetChild(i);
+            wayPoints[i] = pathPrefab.GetChild(i);
         }
         return wayPoints;
     }
