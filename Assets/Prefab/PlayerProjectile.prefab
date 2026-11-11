@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6870245067680230330}
   - component: {fileID: 1307842025105182049}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 8983988234924974379}
   - component: {fileID: 297789907881786873}
   - component: {fileID: 8974989906703471559}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,4 +212,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a87c939ca5e9dd4bb9e752c6dd8faa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamageDealer
-  damage: 100
+  damage: 25

@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveVector;
     Vector2 minBounds;
     Vector2 maxBounds;
+    Shooter shooter;
+    InputAction fireAction;
     [SerializeField] float moveSpeed = 20f;
     [SerializeField] float leftBoundPadding;
     [SerializeField] float rightBoundPadding;
@@ -15,12 +17,15 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
+        fireAction = InputSystem.actions.FindAction("Fire");
+        shooter = GetComponent<Shooter>();
         InitBounds();
     }
 
     void Update()
     {
         MovePlayer();
+        FireShooter();
     }
 
     void MovePlayer()
@@ -38,5 +43,9 @@ public class PlayerMovement : MonoBehaviour
         Camera mainCamera = Camera.main;
         minBounds = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
         maxBounds = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
+    }
+    void FireShooter()
+    {
+        shooter.isFiring = fireAction.IsPressed();
     }
 }
