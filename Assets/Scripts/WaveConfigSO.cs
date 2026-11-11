@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WaveConfig", menuName = "New WaveConfig")]
 public class WaveConfigSO : ScriptableObject
 {
+    [SerializeField] GameObject[] enemyPrefab;
     [SerializeField] Transform pathPrefab;
 
     [SerializeField] float enemymoveSpeed = 10f;
@@ -23,5 +24,13 @@ public class WaveConfigSO : ScriptableObject
             wayPoints[i] = pathPrefab.GetChild(i);
         }
         return wayPoints;
+    }
+    public int GetEnemyCount()
+    {
+        return enemyPrefab.Length;
+    }
+    public GameObject GetEnemyPrefab(int index)
+    {
+        return enemyPrefab[index];
     }
 }
