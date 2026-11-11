@@ -4,13 +4,25 @@ using System.Collections.Generic;
 
 public class Shooter : MonoBehaviour
 {
+    [Header("Shooter Settings")]
     [SerializeField] GameObject projectile;
     [SerializeField] float speed = 10f;
     [SerializeField] float projectileLifetime = 5f;
-    [SerializeField] float fireRate = 0.2f;
-    public bool isFiring;
+    [SerializeField] float baseFireRate = 0.2f;
+    [Header("AI Settings")]
+    [SerializeField] bool useAI;
+    [SerializeField] float minFireRate = 0.1f;
+    [SerializeField] float fireRateVariance = 0f;
+    [HideInInspector]public bool isFiring;
     Coroutine fireCoroutine;
 
+    void Start()
+    {
+        if (useAI)
+        {
+            isFiring = true;
+        }
+    }
     void Update()
     {
         Fire();
@@ -32,10 +44,13 @@ public class Shooter : MonoBehaviour
         while (true)
         {
             GameObject instance = Instantiate(projectile, transform.position, Quaternion.identity);
+            instance.transform.rotation = transform.rotation;
             Rigidbody2D projectileRB = instance.GetComponent<Rigidbody2D>();
-            projectileRB.linearVelocityY = speed;
+            projectileRB.linearVelocity = transform.up * speed;
             Destroy(instance, projectileLifetime);
-            yield return new WaitForSeconds(fireRate);
+            float waitTime = Random.Range(minFireRate, baseFireRate + fireRateVariance);
+            waitTime = Mathf.Clamp(waitTime, minFireRate, float.MaxValue);
+            yield return new WaitForSeconds(waitTime);
         }
     }
 }
