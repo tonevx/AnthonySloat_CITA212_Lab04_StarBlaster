@@ -2,16 +2,37 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] bool isPlayer;
+    [SerializeField] int scorevalue = 50;
     [SerializeField] int health = 100;
     [SerializeField] ParticleSystem hitEffect;
 
     [SerializeField] bool applyCameraShake;
     CameraShake cameraShake;
     AudioManager audioManager;
+    ScoreManager scoreManager;
     void Start()
     {
-        cameraShake = Camera.main.GetComponent<CameraShake>();
+        Camera mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            cameraShake = mainCamera.GetComponent<CameraShake>();
+        }
         audioManager = FindAnyObjectByType<AudioManager>();
+        scoreManager = FindAnyObjectByType<ScoreManager>();
+
+        if (applyCameraShake && cameraShake == null)
+        {
+            Debug.LogWarning("Camera shake is enabled, but no main camera with CameraShake was found.", this);
+        }
+        if (audioManager == null)
+        {
+            Debug.LogWarning("No AudioManager was found; health sounds will be skipped.", this);
+        }
+        if (!isPlayer && scoreManager == null)
+        {
+            Debug.LogWarning("No ScoreManager was found; this object's score will not be added.", this);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -22,11 +43,14 @@ public class Health : MonoBehaviour
             TakeDamage(damageDealer.GetDamage());
             PlayHitEffect();
             damageDealer.Hit();
-            if (applyCameraShake)
+            if (applyCameraShake && cameraShake != null)
             {
                 cameraShake.ShakeCamera();
             }
-            audioManager.PlayDamageSound();
+            if (audioManager != null)
+            {
+                audioManager.PlayDamageSound();
+            }
         }
     }
 
@@ -35,9 +59,20 @@ public class Health : MonoBehaviour
         health -= damageTaken;
         if (health <= 0)
         {
-            Destroy(gameObject);
-            audioManager.PlayDeathSound();
+            Die();
+            if (audioManager != null)
+            {
+                audioManager.PlayDeathSound();
+            }
         }
+    }
+    void Die()
+    {
+        if (!isPlayer && scoreManager != null)
+        {
+            scoreManager.AddScore(scorevalue);
+        }
+        Destroy(gameObject);
     }
     void PlayHitEffect()
     {
