@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -860247009284934587}
   m_Layer: 7
   m_Name: Enemy2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca71b37f4dbc8d8459ba15947452e3c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  health: 75
+  health: 30
+  hitEffect: {fileID: 3025994313155478475, guid: 940670781ba94a04cb74299cd5e783b9, type: 3}
 --- !u!1 &3120731548286800386
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5640194082120119034}
   - component: {fileID: 4532374422396703118}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,9 @@ GameObject:
   - component: {fileID: 4471163683276237911}
   - component: {fileID: -2537377650451934821}
   - component: {fileID: -1208623389003288846}
-  m_Layer: 0
+  - component: {fileID: 5830593900977277699}
+  - component: {fileID: 3130339468580622216}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,3 +209,37 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.048932284}
   m_Radius: 0.3
+--- !u!114 &5830593900977277699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9099731190825896699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca71b37f4dbc8d8459ba15947452e3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  health: 100
+  hitEffect: {fileID: 3025994313155478475, guid: 940670781ba94a04cb74299cd5e783b9, type: 3}
+--- !u!114 &3130339468580622216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9099731190825896699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764a3e1a06e6e44448389a22ce41038a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shooter
+  projectile: {fileID: 7559171911568112518, guid: da80b3d8fb0812d48a679319466ecce5, type: 3}
+  speed: 10
+  projectileLifetime: 5
+  baseFireRate: 0.2
+  useAI: 0
+  minFireRate: 0.1
+  fireRateVariance: 0
+  isFiring: 0
