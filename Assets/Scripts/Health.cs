@@ -11,6 +11,10 @@ public class Health : MonoBehaviour
     CameraShake cameraShake;
     AudioManager audioManager;
     ScoreManager scoreManager;
+    public int GetHealth()
+    {
+        return health;
+    } 
     void Start()
     {
         Camera mainCamera = Camera.main;

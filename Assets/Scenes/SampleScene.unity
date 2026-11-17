@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 534478774}
   - component: {fileID: 534478773}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -754,6 +754,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1156299230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5830593900977277699, guid: 9f95ff2bf8f2a9f42966489fdb140631, type: 3}
+  m_PrefabInstance: {fileID: 840087098338977731}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca71b37f4dbc8d8459ba15947452e3c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
 --- !u!1 &1183811722
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,6 +993,7 @@ GameObject:
   - component: {fileID: 1414054440}
   - component: {fileID: 1414054439}
   - component: {fileID: 1414054438}
+  - component: {fileID: 1414054442}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1073,6 +1085,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1414054442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414054437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2647610d078cc9047aa5893b55076bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIUpdater
+  healthSlider: {fileID: 1873445137}
+  playerHealth: {fileID: 1156299230}
+  scoreText: {fileID: 534478773}
 --- !u!1 &1427448935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,7 +1288,7 @@ GameObject:
   - component: {fileID: 1873445136}
   - component: {fileID: 1873445137}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: HPSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1336,7 +1363,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 0.62
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
