@@ -15,9 +15,11 @@ public class Shooter : MonoBehaviour
     [SerializeField] float fireRateVariance = 0f;
     [HideInInspector]public bool isFiring;
     Coroutine fireCoroutine;
+    AudioManager audioManager;
 
     void Start()
     {
+        audioManager = FindAnyObjectByType<AudioManager>();
         if (useAI)
         {
             isFiring = true;
@@ -50,6 +52,7 @@ public class Shooter : MonoBehaviour
             Destroy(instance, projectileLifetime);
             float waitTime = Random.Range(minFireRate, baseFireRate + fireRateVariance);
             waitTime = Mathf.Clamp(waitTime, minFireRate, float.MaxValue);
+            audioManager.PlayShootingSound();
             yield return new WaitForSeconds(waitTime);
         }
     }
