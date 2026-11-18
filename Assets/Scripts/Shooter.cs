@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Shooter : MonoBehaviour
 {
@@ -23,6 +24,12 @@ public class Shooter : MonoBehaviour
         if (useAI)
         {
             isFiring = true;
+        }
+        if (useAI && SceneManager.GetActiveScene().name == "TouhouMode")
+        {
+            baseFireRate = 0.5f;
+            speed = 15f;
+            projectileLifetime = 6f;
         }
     }
     void Update()

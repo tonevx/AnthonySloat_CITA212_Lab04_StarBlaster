@@ -31,6 +31,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("GameStart");
     }
 
+    public void LoadTouhouMode()
+    {
+        SceneManager.LoadScene("TouhouMode");
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quitting game...");
@@ -39,7 +44,15 @@ public class LevelManager : MonoBehaviour
 
     public void RestartGameOnLoss()
     {
-        SceneManager.LoadScene("GameScreen");
+        int previousindex = SceneManager.GetActiveScene().buildIndex -1;
+        if (previousindex == 2)
+        {
+            SceneManager.LoadScene("TouhouMode");
+        }
+        else
+        {
+            SceneManager.LoadScene("GameScreen");
+        }
     }
 
     IEnumerator WaitAndLoad(string sceneName, float delay)

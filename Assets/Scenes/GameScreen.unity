@@ -1070,6 +1070,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 886314441629334698, guid: 42b7b8423213a604da7a395b98ceecac, type: 3}
+      propertyPath: waveConfigs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 886314441629334698, guid: 42b7b8423213a604da7a395b98ceecac, type: 3}
+      propertyPath: 'waveConfigs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f21514b7c765110428a9dc3b5c85c3d4, type: 2}
+    - target: {fileID: 886314441629334698, guid: 42b7b8423213a604da7a395b98ceecac, type: 3}
+      propertyPath: 'waveConfigs.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1de61aa9f0b8ae54a8db8ebba90fea4e, type: 2}
     - target: {fileID: 6011846754696310372, guid: 42b7b8423213a604da7a395b98ceecac, type: 3}
       propertyPath: m_Name
       value: EnemySpawner

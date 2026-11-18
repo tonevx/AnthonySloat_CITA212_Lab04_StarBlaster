@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     [SerializeField] bool isPlayer;
@@ -62,6 +62,10 @@ public class Health : MonoBehaviour
     void TakeDamage(int damageTaken)
     {
         health -= damageTaken;
+        if (SceneManager.GetActiveScene().name == "TouhouMode")
+        {
+            health -= damageTaken +10;
+        }
         if (health <= 0)
         {
             Die();
