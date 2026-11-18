@@ -14,6 +14,26 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip deathSound;
     [SerializeField] [Range(0f, 1f)] float deathVolume;
 
+    static AudioManager instance;
+
+    void Awake()
+    {
+        ManageSingleton();
+    }
+
+    void ManageSingleton()
+    {
+        if (instance != null)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
     public void PlayShootingSound()
     {
         PlaySound(shootingSound, shootingVolume);
