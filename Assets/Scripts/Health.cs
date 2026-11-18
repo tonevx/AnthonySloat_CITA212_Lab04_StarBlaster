@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     CameraShake cameraShake;
     AudioManager audioManager;
     ScoreManager scoreManager;
+    LevelManager levelManager;
     public int GetHealth()
     {
         return health;
@@ -24,7 +25,7 @@ public class Health : MonoBehaviour
         }
         audioManager = FindAnyObjectByType<AudioManager>();
         scoreManager = FindAnyObjectByType<ScoreManager>();
-
+        levelManager = FindAnyObjectByType<LevelManager>();
         if (applyCameraShake && cameraShake == null)
         {
             Debug.LogWarning("Camera shake is enabled, but no main camera with CameraShake was found.", this);
@@ -72,11 +73,16 @@ public class Health : MonoBehaviour
     }
     void Die()
     {
-        if (!isPlayer && scoreManager != null)
+        Destroy(gameObject);
+        if (isPlayer)
+        {
+            levelManager.LoadGameOver();
+        }
+        else
         {
             scoreManager.AddScore(scorevalue);
         }
-        Destroy(gameObject);
+
     }
     void PlayHitEffect()
     {
