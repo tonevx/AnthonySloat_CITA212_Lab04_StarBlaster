@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: 2791401416601923700, guid: 82b265e83a926cf4eb0ecfc688b7dea3, type: 3}
   - {fileID: 2791401416601923700, guid: e2aeb7b3c45219344937d57ff125ffb1, type: 3}
   pathPrefab: {fileID: 1613509191482407795, guid: 83ffeb4f193eec747943ad6d04d78d7a, type: 3}
-  enemymoveSpeed: 15
+  enemymoveSpeed: 11
   enemySpawnInterval: 0.5
   enemySpawnVariance: 0.1
   minimumSpawnTime: 0.1
